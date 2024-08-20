@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "dorian-json-read-write"
-  s.version = "0.0.2"
+  s.version = File.read("VERSION").strip
   s.summary = "json read write"
   s.description = s.summary
   s.authors = ["Dorian Marié"]
