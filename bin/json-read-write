@@ -40,7 +40,7 @@ if parsed.files.empty?
   input = $stdin.each_line.to_a.map(&:strip).join("\n") if input.empty?
 
   if parsed.options.pretty
-    puts JSON.pretty_generate(JSON.parse(input)) + "\n\n"
+    puts JSON.pretty_generate(JSON.parse(input))
   else
     puts JSON.parse(input).to_json
   end
