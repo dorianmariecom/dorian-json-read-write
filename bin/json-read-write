@@ -26,10 +26,7 @@ end
 
 parsed.files.each do |file|
   if parsed.options.pretty
-    File.write(
-      file,
-      JSON.pretty_generate(JSON.parse(File.read(file))) + "\n"
-    )
+    File.write(file, JSON.pretty_generate(JSON.parse(File.read(file))) + "\n")
   else
     File.write(file, JSON.parse(File.read(file)).to_json)
   end
