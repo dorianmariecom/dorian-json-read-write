@@ -26,7 +26,10 @@ end
 
 parsed.files.each do |file|
   if parsed.options.pretty
-    File.write(file, JSON.pretty_generate(JSON.parse(File.read(file))))
+    File.write(
+      file,
+      JSON.pretty_generate(JSON.parse(File.read(file))) + "\n"
+    )
   else
     File.write(file, JSON.parse(File.read(file)).to_json)
   end
@@ -37,7 +40,7 @@ if parsed.files.empty?
   input = $stdin.each_line.to_a.map(&:strip).join("\n") if input.empty?
 
   if parsed.options.pretty
-    puts JSON.pretty_generate(JSON.parse(input))
+    puts JSON.pretty_generate(JSON.parse(input)) + "\n\n"
   else
     puts JSON.parse(input).to_json
   end
