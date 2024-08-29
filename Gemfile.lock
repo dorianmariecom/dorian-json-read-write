@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dorian-json-read-write (1.0.0)
+    dorian-json-read-write (1.1.0)
       dorian-arguments
       json
 
