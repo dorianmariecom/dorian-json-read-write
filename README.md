@@ -1,28 +1,35 @@
-# `dorian-each`
+# `dorian-json-read-write`
 
-Evaluates some code on each line of the input
+Read JSON and write it back in normalized pretty form.
 
-e.g. `ls -l | each "puts l.split.first"`
-
-### Install
+## Install
 
 ```bash
-gem install dorian-each
+gem install dorian-json-read-write
 ```
 
-Or as part of my other gems:
+Also included in the aggregate gem:
 
 ```bash
 gem install dorian
 ```
 
-### Usage
-
-From my history:
+## Usage
 
 ```bash
-pbpaste | each "puts line.split('-')[1].split.first" | uniq
-git grep Thing test/ | grep isocode | each "puts l.split(':').first" | sort | uniq | xvim
-cat file.csv | each "code, name = l.split(\"\\t\"); if code.include?(','); puts code; else; puts code.gsub(' ', '') + ',' + name; end"
-git grep thing | grep " doc " | each "puts l.split(':').first" | xvim
+json-read-write [json ...] [file ...]
+```
+
+Run `json-read-write -h` for generated option details and `json-read-write -v` for the installed version.
+
+## Notes
+
+- With files, rewrites each file. With stdin or inline JSON, prints normalized JSON to stdout.
+
+## Examples
+
+### Normalize stdin
+
+```bash
+cat package.json | json-read-write
 ```
